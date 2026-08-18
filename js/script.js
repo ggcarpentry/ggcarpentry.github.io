@@ -39,48 +39,77 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      var action = form.getAttribute("action") || "";
-      var placeholder = action.indexOf("YOUR_FORM_ID") !== -1;
+      var data = new FormData(form);
+      var name = (data.get("name") || "").toString().trim();
+      var phone = (data.get("phone") || "").toString().trim();
+      var email = (data.get("email") || "").toString().trim();
+      var service = (data.get("service") || "Quote Request").toString().trim();
+      var location = (data.get("location") || "Broward / Miami-Dade").toString().trim();
+      var message = (data.get("message") || "").toString().trim();
 
-      if (placeholder) {
-        // Formspree endpoint hasn't been configured yet — fall back to mailto
-        // so the message still reaches contact@gandgcarpentry.com.
-        var data = new FormData(form);
-        var subject = encodeURIComponent("Website inquiry from " + (data.get("name") || "website visitor"));
-        var body = encodeURIComponent(
-          "Name: " + data.get("name") + "\n" +
-          "Email: " + data.get("email") + "\n" +
-          "Phone: " + data.get("phone") + "\n" +
-          "Service: " + data.get("service") + "\n\n" +
-          data.get("message")
-        );
-        window.location.href = "mailto:contact@gandgcarpentry.com?subject=" + subject + "&body=" + body;
-        showStatus("Opening your email app to send this to contact@gandgcarpentry.com…", "ok");
-        return;
-      }
+      var subject = "Quote Request: " + service + " — " + name;
+      var body = [
+        "G&G CARPENTRY — QUOTE REQUEST",
+        "=============================",
+        "Name:     " + name,
+        "Phone:    " + phone,
+        "Email:    " + email,
+        "Service:  " + service,
+        "Location: " + location,
+        "",
+        "Job Details & Scope:",
+        "-------------------",
+        message
+      ].join("\n");
 
-      showStatus("Sending…", "");
-      fetch(action, {
-        method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" }
-      })
-        .then(function (res) {
-          if (res.ok) {
-            form.reset();
-            showStatus("Thanks — your message is on its way. We'll be in touch soon.", "ok");
+      var mailtoUrl = "mailto:contact@gandgcarpentry.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+
+      window.location.href = mailtoUrl;
+
+      status.innerHTML =
+        '<div style="margin-bottom:0.75rem;">Opening your email client to send your inquiry directly to <strong>contact@gandgcarpentry.com</strong>.</div>' +
+        '<div style="display:flex; gap:0.6rem; flex-wrap:wrap;">' +
+        '<button type="button" id="copy-btn" class="btn btn-ghost" style="padding:0.45em 0.9em; font-size:0.76rem;">Copy Details to Clipboard</button>' +
+        '<a href="' + mailtoUrl + '" class="btn btn-ghost" style="padding:0.45em 0.9em; font-size:0.76rem;">Re-open Email App</a>' +
+        '</div>';
+      status.className = "form-status show ok";
+
+      var copyBtn = document.getElementById("copy-btn");
+      if (copyBtn) {
+        copyBtn.addEventListener("click", function () {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(body).then(function () {
+              copyBtn.textContent = "✓ Copied to Clipboard!";
+              setTimeout(function () {
+                copyBtn.textContent = "Copy Details to Clipboard";
+              }, 2500);
+            }).catch(function () {
+              copyFallback(body, copyBtn);
+            });
           } else {
-            showStatus("Something went wrong sending that. Please email contact@gandgcarpentry.com directly.", "err");
+            copyFallback(body, copyBtn);
           }
-        })
-        .catch(function () {
-          showStatus("Something went wrong sending that. Please email contact@gandgcarpentry.com directly.", "err");
         });
+      }
     });
 
-    function showStatus(msg, kind) {
-      status.textContent = msg;
-      status.className = "form-status show" + (kind ? " " + kind : "");
+    function copyFallback(text, btn) {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand("copy");
+        btn.textContent = "✓ Copied to Clipboard!";
+        setTimeout(function () {
+          btn.textContent = "Copy Details to Clipboard";
+        }, 2500);
+      } catch (err) {
+        btn.textContent = "Please copy manually";
+      }
+      document.body.removeChild(ta);
     }
   }
 });
