@@ -826,8 +826,6 @@ p {
 .folio-media img {
   width: 100%;
   height: auto;
-  max-height: 520px;
-  object-fit: contain;
   display: block;
 }
 
