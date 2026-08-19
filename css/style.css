@@ -813,7 +813,7 @@ p {
 }
 
 .folio-media {
-  aspect-ratio: 4/3;
+  width: 100%;
   background: var(--charcoal-2);
   display: flex;
   align-items: center;
@@ -824,12 +824,11 @@ p {
 }
 
 .folio-media img {
-  position: absolute;
-  inset: 0;
   width: 100%;
-  height: 100%;
+  height: auto;
+  max-height: 520px;
   object-fit: contain;
-  object-position: center;
+  display: block;
 }
 
 .folio-media:has(img) svg {
@@ -838,7 +837,8 @@ p {
 
 .folio-media svg {
   width: 100%;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
 }
 
 .folio-tag {
@@ -889,10 +889,6 @@ p {
   .folio-grid {
     grid-template-columns: 1fr;
   }
-
-  .folio-media {
-    aspect-ratio: 1/1;
-  }
 }
 
 .folio-note {
@@ -904,7 +900,75 @@ p {
   color: var(--slate-light);
 }
 
+.folio-media {
+  cursor: pointer;
+}
+
 .folio-note strong {
+  color: var(--brass-bright);
+}
+
+/* ===== Portfolio Lightbox ===== */
+.folio-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 14, 12, 0.92);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.folio-lightbox.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.folio-lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.folio-lightbox-img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border: 1px solid var(--panel-line);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  border-radius: 4px;
+}
+
+.folio-lightbox-caption {
+  margin-top: 0.8rem;
+  color: var(--brass-bright);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.folio-lightbox-close {
+  position: absolute;
+  top: -2.5rem;
+  right: 0;
+  background: transparent;
+  border: none;
+  color: var(--sand-light);
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.2rem 0.6rem;
+}
+
+.folio-lightbox-close:hover {
   color: var(--brass-bright);
 }
 
