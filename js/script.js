@@ -112,4 +112,53 @@ document.addEventListener("DOMContentLoaded", function () {
       document.body.removeChild(ta);
     }
   }
+
+  // ===== Portfolio Lightbox =====
+  var folioMedias = document.querySelectorAll(".folio-media");
+  if (folioMedias.length) {
+    var lightbox = document.createElement("div");
+    lightbox.className = "folio-lightbox";
+    lightbox.innerHTML =
+      '<div class="folio-lightbox-content">' +
+      '<button class="folio-lightbox-close" aria-label="Close image lightbox">&times;</button>' +
+      '<img class="folio-lightbox-img" src="" alt="">' +
+      '<div class="folio-lightbox-caption"></div>' +
+      '</div>';
+    document.body.appendChild(lightbox);
+
+    var lightboxImg = lightbox.querySelector(".folio-lightbox-img");
+    var lightboxCap = lightbox.querySelector(".folio-lightbox-caption");
+    var lightboxClose = lightbox.querySelector(".folio-lightbox-close");
+
+    folioMedias.forEach(function (media) {
+      var img = media.querySelector("img");
+      if (!img) return;
+      media.addEventListener("click", function () {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt || "Portfolio image";
+        var card = media.closest(".folio-card");
+        var title = card ? card.querySelector("h3") : null;
+        lightboxCap.textContent = title ? title.textContent : (img.alt || "");
+        lightbox.classList.add("open");
+        document.body.style.overflow = "hidden";
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && lightbox.classList.contains("open")) {
+        closeLightbox();
+      }
+    });
+  }
 });
