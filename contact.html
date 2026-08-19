@@ -1,162 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — G&amp;G Carpentry</title>
-<meta name="description" content="Request a quote from G&amp;G Carpentry for door hardware, punch-out, or finish carpentry work in Broward and Miami-Dade counties.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — G&amp;G Carpentry</title>
+  <meta name="description"
+    content="Request a quote from G&amp;G Carpentry for door hardware, punch-out, or finish carpentry work in Broward and Miami-Dade counties.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<header class="site-header">
-  <div class="wrap">
-    <a href="index.html" class="brand">
-      <span class="brand-plate">G&amp;G</span>
-      <span class="brand-name">G&amp;G Carpentry<small>Professional Trim &amp; Door Hardware</small></span>
-    </a>
-    <nav class="main-nav" id="main-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-      </ul>
-      <a href="contact.html" class="btn btn-primary">Request a Quote</a>
-    </nav>
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
-  </div>
-</header>
-
-<section class="page-head">
-  <div class="wrap">
-    <span class="eyebrow">Get In Touch</span>
-    <h1>Request a Quote</h1>
-    <p class="lede">Tell us about the job — door hardware, punch-out, or finish trim — and we'll get back to you. Messages go straight to <strong>contact@gandgcarpentry.com</strong>.</p>
-  </div>
-</section>
-
-<section class="section" style="padding-top:2.5rem;">
-  <div class="wrap contact-grid">
-
-    <div>
-      <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <div class="field-row">
-          <div class="field">
-            <label for="name">Full name</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          <div class="field">
-            <label for="phone">Phone</label>
-            <input type="tel" id="phone" name="phone" required>
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-
-        <div class="field">
-          <label for="service">What do you need?</label>
-          <select id="service" name="service" required>
-            <option value="">Select one…</option>
-            <option value="Door Hardware Installation">Door Hardware Installation</option>
-            <option value="Punch-Out / Close-Out Carpentry">Punch-Out / Close-Out Carpentry</option>
-            <option value="Trim & Molding">Trim &amp; Molding</option>
-            <option value="Commercial Finish Work">Commercial Finish Work</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="location">Job location (city)</label>
-          <input type="text" id="location" name="location" placeholder="e.g. Fort Lauderdale, FL">
-        </div>
-
-        <div class="field">
-          <label for="message">Details</label>
-          <textarea id="message" name="message" required placeholder="Tell us about the scope, timeline, and property type."></textarea>
-        </div>
-
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-
-        <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send Request</button>
-        <p class="form-note">We typically reply within 1–2 business days.</p>
-        <div class="form-status" id="form-status"></div>
-      </form>
-
-      <div class="setup-note">
-        <strong>Setup note for Gavin:</strong> this form is wired to post to Formspree, a free form-to-email service. Create a free account at formspree.io, make a form pointed at contact@gandgcarpentry.com, and replace <code>YOUR_FORM_ID</code> in contact.html's <code>&lt;form action="…"&gt;</code> with your real form ID. Until that's done, the button will open the visitor's email app instead, addressed to contact@gandgcarpentry.com.
-      </div>
-    </div>
-
-    <div class="contact-info">
-      <h3>Direct Contact</h3>
-      <div class="contact-line">
-        <span class="ico">
-          <svg viewBox="0 0 20 20" fill="none"><path d="M2 5l8 6 8-6" stroke="#b8874b" stroke-width="1.6"/><rect x="2" y="4" width="16" height="12" rx="1" stroke="#b8874b" stroke-width="1.6"/></svg>
-        </span>
-        <div>
-          <span class="label">Email</span>
-          <a href="mailto:contact@gandgcarpentry.com">contact@gandgcarpentry.com</a>
-        </div>
-      </div>
-      <div class="contact-line">
-        <span class="ico">
-          <svg viewBox="0 0 20 20" fill="none"><path d="M10 18s6-5.2 6-9.6A6 6 0 004 8.4C4 12.8 10 18 10 18z" stroke="#b8874b" stroke-width="1.6"/><circle cx="10" cy="8.2" r="2" stroke="#b8874b" stroke-width="1.6"/></svg>
-        </span>
-        <div>
-          <span class="label">Service Area</span>
-          Broward &amp; Miami-Dade Counties, FL
-        </div>
-      </div>
-      <div class="contact-line">
-        <span class="ico">
-          <svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="1.5" stroke="#b8874b" stroke-width="1.6"/><path d="M6 8h8M6 11h5" stroke="#b8874b" stroke-width="1.6" stroke-linecap="round"/></svg>
-        </span>
-        <div>
-          <span class="label">Work Type</span>
-          Commercial &amp; Residential
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <h4>G&amp;G Carpentry</h4>
-        <p>Door hardware, punch-out, and finish carpentry serving Broward &amp; Miami-Dade counties.</p>
-      </div>
-      <div>
-        <h4>Site</h4>
+  <header class="site-header">
+    <div class="wrap">
+      <a href="index.html" class="brand">
+        <span class="brand-plate">G&amp;G</span>
+        <span class="brand-name">G&amp;G Carpentry<small>Professional Trim &amp; Door Hardware</small></span>
+      </a>
+      <nav class="main-nav" id="main-nav">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="contact.html">Request a Quote</a></li>
         </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:contact@gandgcarpentry.com">contact@gandgcarpentry.com</a></li>
-          <li>Broward &amp; Miami-Dade, FL</li>
-        </ul>
-      </div>
+        <a href="contact.html" class="btn btn-primary">Request a Quote</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
     </div>
-    <div class="footer-bottom">
-      <span>© <span id="year"></span> G&amp;G Carpentry. All rights reserved.</span>
-      <span>Licensed &amp; Insured — details on request</span>
-    </div>
-  </div>
-</footer>
+  </header>
 
-<script src="js/script.js"></script>
-<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <section class="page-head">
+    <div class="wrap">
+      <span class="eyebrow">Get In Touch</span>
+      <h1>Request a Quote</h1>
+      <p class="lede">Tell us about the job — door hardware, punch-out, or finish trim — and we'll get back to you.
+        Messages go straight to <strong>contact@gandgcarpentry.com</strong>.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:2.5rem;">
+    <div class="wrap contact-grid">
+
+      <div>
+        <form action="https://formsubmit.co/contact@gandgcarpentry.com" method="POST" />
+        <form class="contact-form" id="contact-form">
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="field">
+            <label for="service">What do you need?</label>
+            <select id="service" name="service" required>
+              <option value="">Select one…</option>
+              <option value="Door Hardware Installation">Door Hardware Installation</option>
+              <option value="Punch-Out / Close-Out Carpentry">Punch-Out / Close-Out Carpentry</option>
+              <option value="Trim & Molding">Trim &amp; Molding</option>
+              <option value="Commercial Finish Work">Commercial Finish Work</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="location">Job location (city)</label>
+            <input type="text" id="location" name="location" placeholder="e.g. Fort Lauderdale, FL">
+          </div>
+
+          <div class="field">
+            <label for="message">Details</label>
+            <textarea id="message" name="message" required
+              placeholder="Tell us about the scope, timeline, and property type."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send Request</button>
+          <p class="form-note">We typically reply within 1–2 business days.</p>
+          <div class="form-status" id="form-status"></div>
+        </form>
+      </div>
+
+      <div class="contact-info">
+        <h3>Direct Contact</h3>
+        <div class="contact-line">
+          <span class="ico">
+            <svg viewBox="0 0 20 20" fill="none">
+              <path d="M2 5l8 6 8-6" stroke="#b8874b" stroke-width="1.6" />
+              <rect x="2" y="4" width="16" height="12" rx="1" stroke="#b8874b" stroke-width="1.6" />
+            </svg>
+          </span>
+          <div>
+            <span class="label">Email</span>
+            <a href="mailto:contact@gandgcarpentry.com">contact@gandgcarpentry.com</a>
+          </div>
+        </div>
+        <div class="contact-line">
+          <span class="ico">
+            <svg viewBox="0 0 20 20" fill="none">
+              <path d="M10 18s6-5.2 6-9.6A6 6 0 004 8.4C4 12.8 10 18 10 18z" stroke="#b8874b" stroke-width="1.6" />
+              <circle cx="10" cy="8.2" r="2" stroke="#b8874b" stroke-width="1.6" />
+            </svg>
+          </span>
+          <div>
+            <span class="label">Service Area</span>
+            Broward &amp; Miami-Dade Counties, FL
+          </div>
+        </div>
+        <div class="contact-line">
+          <span class="ico">
+            <svg viewBox="0 0 20 20" fill="none">
+              <rect x="3" y="3" width="14" height="14" rx="1.5" stroke="#b8874b" stroke-width="1.6" />
+              <path d="M6 8h8M6 11h5" stroke="#b8874b" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </span>
+          <div>
+            <span class="label">Work Type</span>
+            Commercial &amp; Residential
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h4>G&amp;G Carpentry</h4>
+          <p>Door hardware, punch-out, and finish carpentry serving Broward &amp; Miami-Dade counties.</p>
+        </div>
+        <div>
+          <h4>Site</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Request a Quote</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:contact@gandgcarpentry.com">contact@gandgcarpentry.com</a></li>
+            <li>Broward &amp; Miami-Dade, FL</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> G&amp;G Carpentry. All rights reserved.</span>
+        <span>Licensed &amp; Insured — details on request</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
+
 </html>
