@@ -113,6 +113,51 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // ===== Photo upload drop zone =====
+  var fileInput = document.getElementById("photos");
+  var dropZone  = document.getElementById("file-drop-zone");
+  var fileNames = document.getElementById("file-names");
+
+  if (fileInput && dropZone && fileNames) {
+    function updateFileNames(files) {
+      if (!files || files.length === 0) {
+        fileNames.textContent = "";
+        return;
+      }
+      if (files.length > 3) {
+        fileNames.textContent = "⚠ Please select up to 3 photos only.";
+        fileNames.style.color = "#d68d7c";
+        fileInput.value = "";
+        return;
+      }
+      fileNames.style.color = "";
+      fileNames.textContent = Array.from(files).map(function (f) { return f.name; }).join(" · ");
+    }
+
+    fileInput.addEventListener("change", function () {
+      updateFileNames(fileInput.files);
+    });
+
+    dropZone.addEventListener("dragover", function (e) {
+      e.preventDefault();
+      dropZone.classList.add("drag-over");
+    });
+
+    dropZone.addEventListener("dragleave", function () {
+      dropZone.classList.remove("drag-over");
+    });
+
+    dropZone.addEventListener("drop", function (e) {
+      e.preventDefault();
+      dropZone.classList.remove("drag-over");
+      var dt = e.dataTransfer;
+      if (dt && dt.files.length) {
+        fileInput.files = dt.files;
+        updateFileNames(dt.files);
+      }
+    });
+  }
+
   // ===== Portfolio Lightbox =====
   var folioMedias = document.querySelectorAll(".folio-media");
   if (folioMedias.length) {
