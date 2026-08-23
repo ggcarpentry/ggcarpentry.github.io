@@ -47,8 +47,8 @@
     <div class="wrap contact-grid">
 
       <div>
-        <form action="https://formsubmit.co/contact@gandgcarpentry.com" method="POST" />
-        <form class="contact-form" id="contact-form">
+        <form class="contact-form" id="contact-form" action="https://formsubmit.co/contact@gandgcarpentry.com"
+          method="POST">
           <div class="field-row">
             <div class="field">
               <label for="name">Full name</label>
@@ -88,8 +88,10 @@
               placeholder="Tell us about the scope, timeline, and property type."></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send Request</button>
-          <p class="form-note">We typically reply within 1–2 business days.</p>
+          <div class="form-footer">
+            <button type="submit" class="btn btn-primary">Send Request</button>
+            <p class="form-note">We typically reply within 1–2 business days.</p>
+          </div>
           <div class="form-status" id="form-status"></div>
         </form>
       </div>
