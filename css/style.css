@@ -1068,10 +1068,84 @@ p {
   }
 }
 
+/* File upload field */
+.field-optional {
+  font-size: 0.7rem;
+  color: var(--slate-light);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+input[type="file"]#photos {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.file-drop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  padding: 1.6rem 1rem;
+  border: 1.5px dashed var(--panel-line);
+  border-radius: 2px;
+  background: var(--panel);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  text-align: center;
+}
+
+.file-drop:hover,
+.file-drop.drag-over {
+  border-color: var(--brass);
+  background: color-mix(in srgb, var(--brass) 6%, var(--panel));
+}
+
+.file-drop svg {
+  width: 28px;
+  height: 28px;
+  color: var(--brass);
+  margin-bottom: 0.3rem;
+}
+
+.file-drop-text {
+  font-size: 0.9rem;
+  color: var(--chalk);
+  font-weight: 500;
+}
+
+.file-drop-sub {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--slate-light);
+  letter-spacing: 0.04em;
+}
+
+.file-names {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--brass-bright);
+  margin-top: 0.2rem;
+  word-break: break-all;
+}
+
+.form-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: flex-start;
+}
+
 .form-note {
   font-size: 0.8rem;
   color: var(--slate-light);
   font-family: var(--mono);
+  margin: 0;
 }
 
 .form-status {
